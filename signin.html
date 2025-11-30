@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/signin.css">
+  </head>
+
+  <body>
+
+    <div class="container" id="signIn">
+      <h1>Login</h1>
+
+      <div class="input-group">
+        <input type="text" name="userIdentification" required />
+        <label>Username or Password</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" name="Password" required />
+        <label>Password</label>
+      </div>
+
+      <div class="remember-me">
+        <label><input type="checkbox"> Remember me</label>
+        <a href="#">Forgot Password&quest;</a>
+      </div>
+
+      <button class="submit" id="login">Login</button>
+
+      <div class="register-link" id="show-signin">
+        <p>Don't have an account&quest; <a href="signup.html">Register</a></p>
+      </div>
+
+    </div>
+  </body>
+  <script src="script/auth.js"></script>
+</html>

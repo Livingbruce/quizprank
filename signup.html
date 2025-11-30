@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles/signin.css">
+  </head>
+
+  <body>
+
+    <div class="container" id="signUp">
+      <h1>Register</h1>
+
+      <div class="input-group">
+        <input type="text" name="Name" id="name" required>
+        <label>Full name</label>
+      </div>
+
+      <div class="input-group">
+        <input type="text" name="userIdentification" id="username" required />
+        <label>Username</label>
+      </div>
+
+      <div class="input-group">
+        <input type="text" name="email" id="email" required>
+        <label>Email</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" name="Password" id="password" required />
+        <label>Password</label>
+      </div>
+
+      <button class="submit" id="submitRegister">Register</button>
+
+      <div class="register-link" id="show-signup">
+        <p>Already have an account&quest; <a href="signin.html">Login</a></p>
+      </div>
+
+    </div>
+  </body>
+  <script src="script/auth.js"></script>
+</html>
