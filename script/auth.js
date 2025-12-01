@@ -21,26 +21,30 @@ document.addEventListener('DOMContentLoaded', () => {
 const questions = [
   { q: "Do you know the one who brought you here?", correct: "yes", wrong: ["No", "Not sure"] },
   { q: "Isn't he the smartest?", correct: "Absolutely", wrong: ["No", "Not really"] },
-  { q: "You like Him?", correct: "Obviously", wrong: ["Not really", "No"] }
+  { q: "You like Him?", correct: "Obviously", wrong: ["Not really", "No"] },
+  { q: "Good now will you send him money?", correct: "Yes", wrong: ["No"] },
+  { q: "Number: 0741269839 Have you sent?", correct: "Yes", wrong: ["Later", "No"] }
 ];
 
 let index = 0;
 let attempts = 0;
+let totalClicks = 0;
 
 const questionText = document.getElementById('question');
 const answersDiv = document.getElementById('answers');
 
-//send to googlesheet
+//send to postgresDB
 function recordAttempt(question, attemptNumber, answer, correct) {
-  fetch("https://script.google.com/macros/s/AKfycbx9HmMhB3OFnHj60HQO-46Zw-tWaH6NJGoIbas-sCK7FxhO5Yi1jBLJkw0eFwy_9fkv2Q/exec", {
+  fetch("http://localhost:3000/record", {
     method: "POST",
-    headers: {"Content-Type": "application/json"},
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ question, attemptNumber, answer, correct })
   })
-  .then(res => res.JSON())
+  .then(res => res.json())
   .then(data => console.log("Recorded:", data))
   .catch(err => console.error(err));
 }
+
 
 function loadQuestion() {
   answersDiv.innerHTML = "";
@@ -60,7 +64,7 @@ function loadQuestion() {
       index++;
       loadQuestion();
     } else {
-      alert("Quiz completed. Now i know😂😂🫵. You better send me shush money.")
+      alert("Quiz completed. Now i know😂😂🫵. You better send me the money.")
     }
   };
   answersDiv.appendChild(correctBtn);
